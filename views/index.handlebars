@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <div class="col s2"><img style="max-width: 100%; max-height: 100%;" src="./assets/img/sushi_vector.png"></div>
+        <div class="col s10">
+            <h1 style="font-weight: 100;"> Sushi Counter</h1>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <div class="col s6">
+            <h3 style="font-weight: 200; font-stretch: condensed;">NEW ROLLS:</h3>
+
+            <ul style="font-weight: 400;">
+                {{#each sushi}} {{#unless devoured}} {{> sushi/sushi_devoured devoured=false}} {{/unless}} {{/each}}
+            </ul>
+        </div>
+
+        <div class="col s6">
+            <h3 style="font-weight: 200; font-stretch: condensed;">DEVOURED ROLLS:</h3>
+            <ul style="font-weight: 400;">
+                {{#each sushi}} {{#if devoured}}
+                <li>{{sushi_name}}</li> {{/if}} {{/each}}
+            </ul>
+        </div>
+    </div>
+    <h3 style="font-weight: 200; font-stretch: condensed;">Add a new sushi roll here:</h3>
+    <form class="create-form">
+
+        <div class="form-group">
+            <label for="sushi"></label>
+            <input type="text" id="sushiName" name="sushi_name">
+        </div>
+
+        <button type="submit" class="add">Add Sushi</button>
+    </form>
+</div>
